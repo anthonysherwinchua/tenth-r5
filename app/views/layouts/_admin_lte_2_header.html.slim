@@ -1,0 +1,16 @@
+header.main-header
+
+  = link_to '#', class: 'logo' do
+    span.logo-mini
+      b 10th
+    span.logo-lg
+      b 10th
+
+  nav.navbar.navbar-static-top role="navigation"
+    = link_to '#', class: 'sidebar-toggle', data: { toggle: 'offcanvas' }, role: 'button' do
+      span.sr-only Toggle navigation
+
+    .navbar-custom-menu
+      ul.nav.navbar-nav.navbar-right
+        li = link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
+        li = link_to '', '#'
