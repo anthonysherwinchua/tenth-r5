@@ -14,7 +14,6 @@
 /coverage/*
 .env
 config/database.yml
-db/schema.rb
 /coverage
 .DS_Store
 
