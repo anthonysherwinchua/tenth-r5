@@ -1,4 +1,5 @@
 files = [
+  'users',
   'blood_types'
 ]
 
