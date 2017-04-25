@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title 10th Story Placement Agency Inc
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+
+  body*app_data class=body_css_class
+    - if current_user
+      = link_to 'Logout', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'Login', new_user_session_path
+    = yield
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    javascript:
+      App.init()
