@@ -1,5 +1,9 @@
 class Admin::BaseController < ApplicationController
-  before_action :authenticate_user!
 
   layout 'admin_lte_2'
+
+  include Pundit
+
+  before_action :authenticate_user!
+
 end

@@ -35,6 +35,7 @@ gem "cocoon"
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem "rolify"
+gem "pundit"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
