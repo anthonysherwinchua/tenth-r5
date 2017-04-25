@@ -26,20 +26,6 @@ ActiveRecord::Schema.define(version: 20170103074902) do
     t.index ["name"], name: "index_academic_levels_on_name", using: :btree
   end
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.text     "body"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "namespace"
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
-  end
-
   create_table "applicant_contact_details", force: :cascade do |t|
     t.integer "applicant_id",    default: 0
     t.integer "contact_type_id", default: 0
@@ -115,12 +101,6 @@ ActiveRecord::Schema.define(version: 20170103074902) do
     t.boolean "speak"
     t.index ["applicant_id"], name: "index_applicant_languages_on_applicant_id", using: :btree
     t.index ["language_id"], name: "index_applicant_languages_on_language_id", using: :btree
-  end
-
-  create_table "applicant_last_updated_at", force: :cascade do |t|
-    t.integer  "applicant_id", default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
   end
 
   create_table "applicant_meta_data", force: :cascade do |t|
@@ -203,21 +183,6 @@ ActiveRecord::Schema.define(version: 20170103074902) do
     t.index ["religion_id"], name: "index_applicants_on_religion_id", using: :btree
     t.index ["suffix_name"], name: "index_applicants_on_suffix_name", using: :btree
     t.index ["weight"], name: "index_applicants_on_weight", using: :btree
-  end
-
-  create_table "application_template_files", force: :cascade do |t|
-    t.integer  "application_id",          default: 0
-    t.string   "pdf_file_file_name"
-    t.string   "pdf_file_content_type"
-    t.integer  "pdf_file_file_size"
-    t.datetime "pdf_updated_at"
-    t.string   "image_file_file_name"
-    t.string   "image_file_content_type"
-    t.integer  "image_file_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "template"
   end
 
   create_table "applications", force: :cascade do |t|
@@ -357,18 +322,6 @@ ActiveRecord::Schema.define(version: 20170103074902) do
     t.boolean "enabled",        default: false
     t.index ["document_id"], name: "index_requirements_on_document_id", using: :btree
     t.index ["job_opening_id"], name: "index_requirements_on_job_opening_id", using: :btree
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id", using: :btree
   end
 
   create_table "schools", force: :cascade do |t|
