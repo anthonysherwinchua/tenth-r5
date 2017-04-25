@@ -1,8 +1,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-@import 'ionicons.min';
 @import 'font-awesome';
 
-@import 'AdminLTE.min';
-@import 'AdminLTE/skins/skin-blue';
+@import 'adminlte/AdminLTE';
+@import 'adminlte/ionicons.min';
+@import 'adminlte/skin-blue';

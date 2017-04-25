@@ -6,7 +6,7 @@
 #= require moment
 #= require bootstrap-datetimepicker
 #= require cocoon
-#= require Chart
+#= require adminlte/app.js
 
 window.App ||= {}
 App.Views ||= {}

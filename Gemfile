@@ -34,14 +34,12 @@ gem "cocoon"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
-gem "rolify"
+gem "pundit"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
-gem 'adminlte2-rails'
-gem 'chart-js-rails'
 
 group :development, :test do
   gem 'pry'

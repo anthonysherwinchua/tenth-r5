@@ -1,0 +1,10 @@
+.row
+  .col-xs-12
+    .box.box-primary
+      .box-header.with-border
+        h3.box-title Blood Type Details
+      .box-body
+        = f.input :name, label: 'Blood Type'
+
+      .box-footer
+        = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'
