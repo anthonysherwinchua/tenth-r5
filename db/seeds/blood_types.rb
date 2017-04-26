@@ -9,3 +9,4 @@ BloodType.create([
                    { id: 8, name: "AB-" },
                    { id: 9, name: "AB+" }
                  ])
+ActiveRecord::Base.connection.execute('ALTER SEQUENCE blood_types_id_seq RESTART 10;')
