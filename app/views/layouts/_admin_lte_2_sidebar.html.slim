@@ -13,7 +13,7 @@ aside.main-sidebar
       li.header Manage
       li = link_to 'Dashboard', admin_root_path
       li.treeview
-        = link_to '#' do
+        = link_to admin_lookups_path do
           span Lookups
           = fa_icon 'angle-left', class: 'pull-right'
         ul.treeview-menu

@@ -2,7 +2,7 @@
   = @blood_type.name
 
 - content_for :breadcrumbs do
-  li Lookups
+  li = link_to 'Lookups', admin_lookups_path
   li = link_to 'Blood Types', admin_lookups_blood_types_path
   li = link_to 'Edit', edit_admin_lookups_blood_type_path(@blood_type)
 

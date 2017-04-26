@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
     root to: 'dashboard#show'
 
+    resource :lookups, only: [:show]
+
     namespace :lookups do
 
       resources :blood_types, only: [:index, :new, :create, :edit, :update]
