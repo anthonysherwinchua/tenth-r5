@@ -1,0 +1,15 @@
+- content_for :page_header do
+  | Lookups
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+
+.row
+  .col-xs-12
+
+    .box
+      .box-body
+
+        ul
+          li = link_to 'Blood Types', admin_lookups_blood_types_path
+
