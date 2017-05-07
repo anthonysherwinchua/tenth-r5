@@ -14,7 +14,7 @@
 
         .box-tools
           .no-margin.pull-right
-            = link_to 'Add new', new_admin_lookups_blood_type_path, class: 'btn btn-primary'
+            = link_to 'Add new', new_admin_lookups_blood_type_path, class: 'btn btn-primary', data: { toggle: 'modal', target: '.modal' }
 
       .box-body.no-padding
         table.table.table-hover.table-striped
@@ -26,4 +26,4 @@
             - @blood_types.each do |blood_type|
               tr
                 td = link_to blood_type.name, admin_lookups_blood_type_path(blood_type)
-                td = link_to 'Edit', edit_admin_lookups_blood_type_path(blood_type), class: 'btn btn-default'
+                td = link_to 'Edit', edit_admin_lookups_blood_type_path(blood_type), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

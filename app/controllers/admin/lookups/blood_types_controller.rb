@@ -9,6 +9,7 @@ class Admin::Lookups::BloodTypesController < Admin::BaseController
   end
 
   def new
+    render action: :new, layout: false if request.xhr? == 0
   end
 
   def create
@@ -20,6 +21,7 @@ class Admin::Lookups::BloodTypesController < Admin::BaseController
   end
 
   def edit
+    render action: :edit, layout: false if request.xhr? == 0
   end
 
   def update
