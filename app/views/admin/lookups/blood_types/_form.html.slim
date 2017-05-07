@@ -1,10 +1,15 @@
-.row
-  .col-xs-12
-    .box.box-primary
-      .box-header.with-border
-        h3.box-title Blood Type Details
-      .box-body
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Blood Type Details
+
+  .modal-body.box-body
+    .row
+      .col-xs-12
         = f.input :name, label: 'Blood Type'
 
-      .box-footer
-        = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'

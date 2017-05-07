@@ -26,10 +26,8 @@ App.init = ->
     $(".alert").delay(5000).slideUp()
     return
 
-  $('.modal').on 'show.bs.modal', (e)->
-    return
-
   $('.modal').on 'hidden.bs.modal', (e)->
     $(".alert").addClass("fade")
+    $(this).removeData('bs.modal');
     return
   return
