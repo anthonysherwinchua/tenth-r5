@@ -1,0 +1,16 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Citizenship Details
+
+  .modal-body.box-body
+    .row
+      .col-xs-12
+        = f.input :name, label: 'Citizenship'
+        = f.input :enabled, label: 'Enabled?'
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'

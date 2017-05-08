@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :lookups do
 
       resources :blood_types, only: [:index, :new, :create, :edit, :update]
+      resources :citizenships, only: [:index, :new, :create, :edit, :update]
 
     end
 

@@ -1,6 +1,7 @@
 files = [
   'users',
-  'blood_types'
+  'blood_types',
+  'citizenships'
 ]
 
 files.each do |file|
