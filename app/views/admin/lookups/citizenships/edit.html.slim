@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Citizenship: #{@citizenship.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Citizenships', admin_lookups_citizenships_path
+  li = link_to "Editing: #{@citizenship.name}", edit_admin_lookups_citizenship_path(@citizenship)
+
+= simple_form_for @citizenship, url: admin_lookups_citizenship_path(@citizenship), method: :patch do |f|
+  = render 'form', f: f

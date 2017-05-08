@@ -1,0 +1,3 @@
+class CitizenshipPolicy < LookupBasePolicy
+
+end
