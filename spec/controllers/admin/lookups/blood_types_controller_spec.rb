@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::Lookups::BloodTypesController, type: :controller do
 
-  login_user
+  login_admin
 
   describe 'GET index' do
 

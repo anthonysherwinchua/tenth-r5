@@ -9,7 +9,7 @@ class LookupBasePolicy < ApplicationPolicy
   end
 
   def update?
-    @user.admin?
+    create?
   end
 
 end

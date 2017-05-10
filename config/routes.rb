@@ -27,6 +27,12 @@ Rails.application.routes.draw do
 
     end
 
+    resources :users, only: [:index, :new, :create, :edit, :update] do
+      # match :activate, via: [:get, :patch], on: :member
+      # match :deactivate, via: [:get, :patch], on: :member
+      # match :role, via: [:get, :patch], on: :member
+    end
+
   end
 
   root to: "pages#index"
