@@ -26,6 +26,6 @@
           tbody
             - @citizenships.each do |citizenship|
               tr
-                td = link_to citizenship.name, admin_lookups_citizenship_path(citizenship)
+                td = citizenship.name
                 td = citizenship.enabled? ? 'Yes' : 'No'
                 td = link_to 'Edit', edit_admin_lookups_citizenship_path(citizenship), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

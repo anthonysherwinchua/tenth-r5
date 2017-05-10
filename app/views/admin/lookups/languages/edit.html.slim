@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Language: #{@language.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Languages', admin_lookups_languages_path
+  li = link_to "Editing: #{@language.name}", edit_admin_lookups_language_path(@language)
+
+= simple_form_for @language, url: admin_lookups_language_path(@language), method: :patch do |f|
+  = render 'form', f: f

@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Skin Type: #{@skin_type.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Skin Types', admin_lookups_skin_types_path
+  li = link_to "Editing: #{@skin_type.name}", edit_admin_lookups_skin_type_path(@skin_type)
+
+= simple_form_for @skin_type, url: admin_lookups_skin_type_path(@skin_type), method: :patch do |f|
+  = render 'form', f: f

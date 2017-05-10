@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing School: #{@school.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Schools', admin_lookups_schools_path
+  li = link_to "Editing: #{@school.name}", edit_admin_lookups_school_path(@school)
+
+= simple_form_for @school, url: admin_lookups_school_path(@school), method: :patch do |f|
+  = render 'form', f: f

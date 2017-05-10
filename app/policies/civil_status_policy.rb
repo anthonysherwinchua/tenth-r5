@@ -1,0 +1,3 @@
+class CivilStatusPolicy < LookupBasePolicy
+
+end

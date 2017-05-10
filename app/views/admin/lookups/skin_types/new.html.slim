@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Skin Types
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Skin Types', admin_lookups_skin_types_path
+  li = link_to 'New', new_admin_lookups_skin_type_path
+
+= simple_form_for @skin_type, url: admin_lookups_skin_types_path do |f|
+  = render 'form', f: f

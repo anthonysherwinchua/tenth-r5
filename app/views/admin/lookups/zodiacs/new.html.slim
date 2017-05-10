@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Zodiacs
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Zodiacs', admin_lookups_zodiacs_path
+  li = link_to 'New', new_admin_lookups_zodiac_path
+
+= simple_form_for @zodiac, url: admin_lookups_zodiacs_path do |f|
+  = render 'form', f: f

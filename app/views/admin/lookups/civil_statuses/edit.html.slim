@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Civil Status: #{@civil_status.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Civil Statuses', admin_lookups_civil_statuses_path
+  li = link_to "Editing: #{@civil_status.name}", edit_admin_lookups_civil_status_path(@civil_status)
+
+= simple_form_for @civil_status, url: admin_lookups_civil_status_path(@civil_status), method: :patch do |f|
+  = render 'form', f: f

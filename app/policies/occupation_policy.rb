@@ -1,0 +1,3 @@
+class OccupationPolicy < LookupBasePolicy
+
+end

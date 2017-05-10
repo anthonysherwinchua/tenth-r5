@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Countries
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Countries', admin_lookups_countries_path
+  li = link_to 'New', new_admin_lookups_country_path
+
+= simple_form_for @country, url: admin_lookups_countries_path do |f|
+  = render 'form', f: f

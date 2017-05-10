@@ -1,0 +1,33 @@
+- content_for :page_header do
+  | Occupations
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Occupations', admin_lookups_occupations_path
+
+.row
+  .col-xs-12
+
+    .box
+      .box-header
+        .box-title
+
+        .box-tools
+          .no-margin.pull-right
+            = link_to 'Add new', new_admin_lookups_occupation_path, class: 'btn btn-primary', data: { toggle: 'modal', target: '.modal' }
+
+      .box-body.no-padding
+        table.table.table-hover.table-striped
+          thead
+            tr
+              th Occupation
+              th Shorthand
+              th Enabled?
+              th
+          tbody
+            - @occupations.each do |occupation|
+              tr
+                td = occupation.name
+                td = occupation.shorthand
+                td = occupation.enabled? ? 'Yes' : 'No'
+                td = link_to 'Edit', edit_admin_lookups_occupation_path(occupation), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

@@ -40,8 +40,8 @@ RSpec.describe Admin::Lookups::BloodTypesController, type: :controller do
 
       subject { post :create, params: { blood_type: attributes_for(:blood_type) } }
 
-      it { expect { subject }.to change { BloodType.count }.by(1)  }
-      it { is_expected.to redirect_to admin_lookups_blood_types_path  }
+      it { expect { subject }.to change { BloodType.count }.by(1) }
+      it { is_expected.to redirect_to admin_lookups_blood_types_path }
 
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Admin::Lookups::BloodTypesController, type: :controller do
 
       subject { post :create, params: { blood_type: attributes_for(:blood_type, :invalid) } }
 
-      it { expect { subject }.not_to change { BloodType.count }  }
+      it { expect { subject }.not_to change { BloodType.count } }
       it { is_expected.to render_template :new }
 
     end
