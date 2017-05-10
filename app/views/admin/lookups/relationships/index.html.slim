@@ -1,0 +1,31 @@
+- content_for :page_header do
+  | Relationships
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Relationships', admin_lookups_relationships_path
+
+.row
+  .col-xs-12
+
+    .box
+      .box-header
+        .box-title
+
+        .box-tools
+          .no-margin.pull-right
+            = link_to 'Add new', new_admin_lookups_relationship_path, class: 'btn btn-primary', data: { toggle: 'modal', target: '.modal' }
+
+      .box-body.no-padding
+        table.table.table-hover.table-striped
+          thead
+            tr
+              th Relationship
+              th Enabled?
+              th
+          tbody
+            - @relationships.each do |relationship|
+              tr
+                td = relationship.name
+                td = relationship.enabled? ? 'Yes' : 'No'
+                td = link_to 'Edit', edit_admin_lookups_relationship_path(relationship), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

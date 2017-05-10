@@ -1,0 +1,20 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Country Details
+
+  .modal-body.box-body
+    .row
+      .col-xs-12
+        = f.input :name, label: 'Country'
+        = f.input :printable_name, label: 'Country (display name)'
+        = f.input :iso, label: 'ISO'
+        = f.input :iso3, label: 'ISO3'
+        = f.input :numcode, label: 'Code'
+        = f.input :enabled, label: 'Enabled?'
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'

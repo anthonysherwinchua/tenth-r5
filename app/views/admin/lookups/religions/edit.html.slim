@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Religion: #{@religion.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Religions', admin_lookups_religions_path
+  li = link_to "Editing: #{@religion.name}", edit_admin_lookups_religion_path(@religion)
+
+= simple_form_for @religion, url: admin_lookups_religion_path(@religion), method: :patch do |f|
+  = render 'form', f: f

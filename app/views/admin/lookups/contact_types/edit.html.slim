@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Contact Type: #{@contact_type.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Contact Types', admin_lookups_contact_types_path
+  li = link_to "Editing: #{@contact_type.name}", edit_admin_lookups_contact_type_path(@contact_type)
+
+= simple_form_for @contact_type, url: admin_lookups_contact_type_path(@contact_type), method: :patch do |f|
+  = render 'form', f: f

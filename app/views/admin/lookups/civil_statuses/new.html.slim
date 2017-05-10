@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Civil Statuses
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Civil Statuses', admin_lookups_civil_statuses_path
+  li = link_to 'New', new_admin_lookups_civil_status_path
+
+= simple_form_for @civil_status, url: admin_lookups_civil_statuses_path do |f|
+  = render 'form', f: f

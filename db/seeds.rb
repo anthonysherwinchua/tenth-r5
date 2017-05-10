@@ -1,7 +1,19 @@
 files = [
   'users',
   'blood_types',
-  'citizenships'
+  'citizenships',
+  'civil_statuses',
+  'contact_types',
+  'countries',
+  'documents',
+  'languages',
+  'occupations',
+  'relationships',
+  'religions',
+  'schools',
+  'skills',
+  'skin_types',
+  'zodiacs'
 ]
 
 files.each do |file|

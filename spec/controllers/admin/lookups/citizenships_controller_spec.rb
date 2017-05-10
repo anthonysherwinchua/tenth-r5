@@ -40,8 +40,8 @@ RSpec.describe Admin::Lookups::CitizenshipsController, type: :controller do
 
       subject { post :create, params: { citizenship: attributes_for(:citizenship) } }
 
-      it { expect { subject }.to change { Citizenship.count }.by(1)  }
-      it { is_expected.to redirect_to admin_lookups_citizenships_path  }
+      it { expect { subject }.to change { Citizenship.count }.by(1) }
+      it { is_expected.to redirect_to admin_lookups_citizenships_path }
 
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Admin::Lookups::CitizenshipsController, type: :controller do
 
       subject { post :create, params: { citizenship: attributes_for(:citizenship, :invalid) } }
 
-      it { expect { subject }.not_to change { Citizenship.count }  }
+      it { expect { subject }.not_to change { Citizenship.count } }
       it { is_expected.to render_template :new }
 
     end

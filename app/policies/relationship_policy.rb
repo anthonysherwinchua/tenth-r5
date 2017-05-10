@@ -1,0 +1,3 @@
+class RelationshipPolicy < LookupBasePolicy
+
+end

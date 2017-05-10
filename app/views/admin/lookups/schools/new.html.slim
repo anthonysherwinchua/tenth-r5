@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Schools
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Schools', admin_lookups_schools_path
+  li = link_to 'New', new_admin_lookups_school_path
+
+= simple_form_for @school, url: admin_lookups_schools_path do |f|
+  = render 'form', f: f

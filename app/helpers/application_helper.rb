@@ -36,12 +36,12 @@ module ApplicationHelper
 
   def fmt_action_name
     case action_name
-      when 'update'
-        'Edit'
-      when 'create'
-        'New'
-      else
-        action_name.camelcase
+    when 'update'
+      'Edit'
+    when 'create'
+      'New'
+    else
+      action_name.camelcase
     end
   end
 

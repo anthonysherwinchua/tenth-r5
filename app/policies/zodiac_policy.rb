@@ -1,0 +1,3 @@
+class ZodiacPolicy < LookupBasePolicy
+
+end

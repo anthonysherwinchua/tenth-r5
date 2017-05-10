@@ -1,0 +1,3 @@
+class SkillPolicy < LookupBasePolicy
+
+end

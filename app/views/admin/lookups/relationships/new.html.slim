@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Relationships
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Relationships', admin_lookups_relationships_path
+  li = link_to 'New', new_admin_lookups_relationship_path
+
+= simple_form_for @relationship, url: admin_lookups_relationships_path do |f|
+  = render 'form', f: f

@@ -1,0 +1,3 @@
+class SkinTypePolicy < LookupBasePolicy
+
+end

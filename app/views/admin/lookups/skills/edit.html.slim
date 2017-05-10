@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Skill: #{@skill.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Skills', admin_lookups_skills_path
+  li = link_to "Editing: #{@skill.name}", edit_admin_lookups_skill_path(@skill)
+
+= simple_form_for @skill, url: admin_lookups_skill_path(@skill), method: :patch do |f|
+  = render 'form', f: f

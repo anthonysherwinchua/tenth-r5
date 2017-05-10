@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Skills
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Skills', admin_lookups_skills_path
+  li = link_to 'New', new_admin_lookups_skill_path
+
+= simple_form_for @skill, url: admin_lookups_skills_path do |f|
+  = render 'form', f: f

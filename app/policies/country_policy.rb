@@ -1,0 +1,3 @@
+class CountryPolicy < LookupBasePolicy
+
+end

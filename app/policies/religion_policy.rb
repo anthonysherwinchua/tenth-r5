@@ -1,0 +1,3 @@
+class ReligionPolicy < LookupBasePolicy
+
+end

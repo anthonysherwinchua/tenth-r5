@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Contact Types
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Contact Types', admin_lookups_contact_types_path
+  li = link_to 'New', new_admin_lookups_contact_type_path
+
+= simple_form_for @contact_type, url: admin_lookups_contact_types_path do |f|
+  = render 'form', f: f

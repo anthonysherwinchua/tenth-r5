@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Country: #{@country.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Countries', admin_lookups_countries_path
+  li = link_to "Editing: #{@country.name}", edit_admin_lookups_country_path(@country)
+
+= simple_form_for @country, url: admin_lookups_country_path(@country), method: :patch do |f|
+  = render 'form', f: f

@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Document: #{@document.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Documents', admin_lookups_documents_path
+  li = link_to "Editing: #{@document.name}", edit_admin_lookups_document_path(@document)
+
+= simple_form_for @document, url: admin_lookups_document_path(@document), method: :patch do |f|
+  = render 'form', f: f

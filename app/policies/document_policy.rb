@@ -1,0 +1,3 @@
+class DocumentPolicy < LookupBasePolicy
+
+end

@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Occupation: #{@occupation.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Occupations', admin_lookups_occupations_path
+  li = link_to "Editing: #{@occupation.name}", edit_admin_lookups_occupation_path(@occupation)
+
+= simple_form_for @occupation, url: admin_lookups_occupation_path(@occupation), method: :patch do |f|
+  = render 'form', f: f

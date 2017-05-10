@@ -1,0 +1,3 @@
+class SchoolPolicy < LookupBasePolicy
+
+end
