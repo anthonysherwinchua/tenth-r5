@@ -1,0 +1,28 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Staffs Details
+
+  .modal-body.box-body
+    .row
+      .col-xs-12
+        = f.input :email, label: 'Email'
+      .col-xs-4
+        = f.input :first_name, label: 'First Name'
+      .col-xs-4
+        = f.input :middle_name, label: 'Middle Name'
+      .col-xs-4
+        = f.input :last_name, label: 'Last Name'
+
+    hr
+    .row
+      .col-xs-6
+        = f.input :password, label: 'Password'
+      .col-xs-6
+        = f.input :password_confirmation, label: 'Confirm Password'
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'
