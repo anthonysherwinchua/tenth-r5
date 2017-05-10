@@ -1,0 +1,14 @@
+table {
+  th:first-child {
+    width: 15%;
+    min-width: 10%;
+  }
+
+  td:first-child {
+    text-align: center;
+
+    .btn {
+      width: 85px;
+    }
+  }
+}

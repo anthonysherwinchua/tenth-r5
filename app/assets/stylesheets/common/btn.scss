@@ -1,3 +1,7 @@
 .btn + .btn {
   margin-left: 10px;
 }
+
+.btn > i {
+  margin-right: 5px;
+}
