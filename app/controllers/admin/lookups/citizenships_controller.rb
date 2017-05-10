@@ -5,7 +5,7 @@ class Admin::Lookups::CitizenshipsController < Admin::BaseController
 
   def index
     authorize Citizenship
-    @citizenships = Citizenship.all
+    @citizenships = Citizenship.order(name: :asc)
   end
 
   def new

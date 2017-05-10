@@ -5,7 +5,7 @@ class Admin::Lookups::ReligionsController < Admin::BaseController
 
   def index
     authorize Religion
-    @religions = Religion.all
+    @religions = Religion.order(name: :asc)
   end
 
   def new

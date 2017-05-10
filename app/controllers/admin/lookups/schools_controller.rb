@@ -5,7 +5,7 @@ class Admin::Lookups::SchoolsController < Admin::BaseController
 
   def index
     authorize School
-    @schools = School.all
+    @schools = School.order(name: :asc)
   end
 
   def new

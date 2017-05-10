@@ -8,13 +8,18 @@
 
   .modal-body.box-body
     .row
-      .col-xs-12
+      .col-xs-6
         = f.input :name, label: 'Country'
+      .col-xs-6
         = f.input :printable_name, label: 'Country (display name)'
+      .col-xs-4
         = f.input :iso, label: 'ISO'
+      .col-xs-4
         = f.input :iso3, label: 'ISO3'
+      .col-xs-4
         = f.input :numcode, label: 'Code'
+      .col-xs-12
         = f.input :enabled, label: 'Enabled?'
 
   .modal-footer.box-footer
-    = f.submit 'Save', class: 'btn btn-primary pull-right btn-block'
+    = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'

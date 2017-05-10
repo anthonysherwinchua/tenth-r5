@@ -5,7 +5,7 @@ class Admin::Lookups::RelationshipsController < Admin::BaseController
 
   def index
     authorize Relationship
-    @relationships = Relationship.all
+    @relationships = Relationship.order(name: :asc)
   end
 
   def new

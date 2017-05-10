@@ -5,7 +5,7 @@ class Admin::Lookups::ZodiacsController < Admin::BaseController
 
   def index
     authorize Zodiac
-    @zodiacs = Zodiac.all
+    @zodiacs = Zodiac.order(name: :asc)
   end
 
   def new

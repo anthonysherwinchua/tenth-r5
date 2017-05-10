@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     authorize User
-    @users = User.all
+    @users = User.order(email: :asc)
   end
 
   def new

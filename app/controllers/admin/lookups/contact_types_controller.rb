@@ -5,7 +5,7 @@ class Admin::Lookups::ContactTypesController < Admin::BaseController
 
   def index
     authorize ContactType
-    @contact_types = ContactType.all
+    @contact_types = ContactType.order(name: :asc)
   end
 
   def new

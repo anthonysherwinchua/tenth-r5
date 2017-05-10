@@ -14,18 +14,25 @@
 
         .box-tools
           .no-margin.pull-right
-            = link_to 'Add new', new_admin_lookups_school_path, class: 'btn btn-primary', data: { toggle: 'modal', target: '.modal' }
+            = link_to 'Add new', new_admin_lookups_school_path, class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
 
       .box-body.no-padding
         table.table.table-hover.table-striped
           thead
             tr
-              th School
-              th Enabled?
               th
+              th Status
+              th School
           tbody
             - @schools.each do |school|
               tr
+                td
+                  = link_to edit_admin_lookups_school_path(school), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                    = fa_icon 'edit'
+                    | Edit
+                td
+                  - if school.enabled?
+                    span.label.label-success Enabled
+                  - else
+                    span.label.label-default Disabled
                 td = school.name
-                td = school.enabled? ? 'Yes' : 'No'
-                td = link_to 'Edit', edit_admin_lookups_school_path(school), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

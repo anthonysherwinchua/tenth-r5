@@ -7,6 +7,8 @@
 #= require bootstrap-datetimepicker
 #= require cocoon
 #= require adminlte/app.js
+#= require adminlte/icheck.min.js
+#= require adminlte/jquery.slimscroll.min.js
 
 window.App ||= {}
 App.Views ||= {}
@@ -24,6 +26,12 @@ App.init = ->
 
   $(document).ready ->
     $(".alert").delay(5000).slideUp()
+    return
+
+  $('.modal').on 'loaded.bs.modal', (e)->
+    $('input').iCheck
+      checkboxClass: 'icheckbox_minimal-blue'
+      radioClass: 'iradio_minimal-blue'
     return
 
   $('.modal').on 'hidden.bs.modal', (e)->

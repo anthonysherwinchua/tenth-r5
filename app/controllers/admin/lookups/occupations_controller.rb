@@ -5,7 +5,7 @@ class Admin::Lookups::OccupationsController < Admin::BaseController
 
   def index
     authorize Occupation
-    @occupations = Occupation.all
+    @occupations = Occupation.order(name: :asc)
   end
 
   def new

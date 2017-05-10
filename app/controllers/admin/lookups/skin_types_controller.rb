@@ -5,7 +5,7 @@ class Admin::Lookups::SkinTypesController < Admin::BaseController
 
   def index
     authorize SkinType
-    @skin_types = SkinType.all
+    @skin_types = SkinType.order(name: :asc)
   end
 
   def new

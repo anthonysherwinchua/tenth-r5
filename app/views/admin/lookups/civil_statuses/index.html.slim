@@ -14,18 +14,25 @@
 
         .box-tools
           .no-margin.pull-right
-            = link_to 'Add new', new_admin_lookups_civil_status_path, class: 'btn btn-primary', data: { toggle: 'modal', target: '.modal' }
+            = link_to 'Add new', new_admin_lookups_civil_status_path, class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
 
       .box-body.no-padding
         table.table.table-hover.table-striped
           thead
             tr
-              th Civil Status
-              th Enabled?
               th
+              th Status
+              th Civil Status
           tbody
             - @civil_statuses.each do |civil_status|
               tr
+                td
+                  = link_to edit_admin_lookups_civil_status_path(civil_status), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                    = fa_icon 'edit'
+                    | Edit
+                td
+                  - if civil_status.enabled?
+                    span.label.label-success Enabled
+                  - else
+                    span.label.label-default Disabled
                 td = civil_status.name
-                td = civil_status.enabled? ? 'Yes' : 'No'
-                td = link_to 'Edit', edit_admin_lookups_civil_status_path(civil_status), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }

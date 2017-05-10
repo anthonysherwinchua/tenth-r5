@@ -5,7 +5,7 @@ class Admin::Lookups::DocumentsController < Admin::BaseController
 
   def index
     authorize Document
-    @documents = Document.all
+    @documents = Document.order(name: :asc)
   end
 
   def new

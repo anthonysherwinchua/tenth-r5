@@ -5,7 +5,7 @@ class Admin::Lookups::BloodTypesController < Admin::BaseController
 
   def index
     authorize BloodType
-    @blood_types = BloodType.all
+    @blood_types = BloodType.order(name: :asc)
   end
 
   def new

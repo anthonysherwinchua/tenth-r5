@@ -16,7 +16,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="login-page">
-<%= yield %>
+<div class="wrapper">
+  <section class="content">
+    <%= render 'layouts/flash_message' %>
+    <%= yield %>
+  </section>
+</div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
