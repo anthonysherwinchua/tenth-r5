@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:index, :new, :create, :edit, :update] do
-      # match :activate, via: [:get, :patch], on: :member
-      # match :deactivate, via: [:get, :patch], on: :member
+      match :lock, via: [:get, :patch], on: :member
+      match :unlock, via: [:get, :patch], on: :member
       # match :role, via: [:get, :patch], on: :member
     end
 

@@ -109,102 +109,76 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   end
 
-  # describe 'GET activate' do
-  #
-  #   let(:user) { create(:user) }
-  #
-  #   describe 'on new tab' do
-  #
-  #     subject { get :activate, params: { id: user } }
-  #
-  #     it { is_expected.to render_template :activate }
-  #     it { is_expected.to render_with_layout 'admin_lte_2' }
-  #
-  #   end
-  #
-  #   describe 'on modal' do
-  #
-  #     subject { get :activate, params: { id: user }, xhr: true }
-  #
-  #     it { is_expected.to render_template :activate }
-  #     it { is_expected.not_to render_with_layout }
-  #
-  #   end
-  #
-  # end
-  #
-  # describe 'PATCH activate' do
-  #
-  #   subject { patch :activate, id: user.id }
-  #
-  #   context 'when valid' do
-  #
-  #     let(:user) { create(:user, :inactive) }
-  #
-  #     it { expect { subject }.to change { user.reload.active? }.from(false).to(true) }
-  #     it { is_expected.to redirect_to admin_users_path }
-  #
-  #   end
-  #
-  #   context 'when invalid' do
-  #
-  #     let(:user) { create(:user, :active) }
-  #
-  #     it { expect { subject }.not_to change { user.reload.active? } }
-  #     it { is_expected.to render_template :activate }
-  #
-  #   end
-  #
-  # end
-  #
-  # describe 'GET deactivate' do
-  #
-  #   let(:user) { create(:user) }
-  #
-  #   describe 'on new tab' do
-  #
-  #     subject { get :deactivate, params: { id: user } }
-  #
-  #     it { is_expected.to render_template :deactivate }
-  #     it { is_expected.to render_with_layout 'admin_lte_2' }
-  #
-  #   end
-  #
-  #   describe 'on modal' do
-  #
-  #     subject { get :deactivate, params: { id: user }, xhr: true }
-  #
-  #     it { is_expected.to render_template :deactivate }
-  #     it { is_expected.not_to render_with_layout }
-  #
-  #   end
-  #
-  # end
-  #
-  # describe 'PATCH deactivate' do
-  #
-  #   subject { patch :deactivate, id: user.id }
-  #
-  #   context 'when valid' do
-  #
-  #     let(:user) { create(:user, :active) }
-  #
-  #     it { expect { subject }.to change { user.reload.active? }.from(true).to(false) }
-  #     it { is_expected.to redirect_to admin_users_path }
-  #
-  #   end
-  #
-  #   context 'when invalid' do
-  #
-  #     let(:user) { create(:user, :inactive) }
-  #
-  #     it { expect { subject }.not_to change { user.reload.active? } }
-  #     it { is_expected.to render_template :deactivate }
-  #
-  #   end
-  #
-  # end
-  #
+  describe 'GET lock' do
+
+    let(:user) { create(:user) }
+
+    describe 'on new tab' do
+
+      subject { get :lock, params: { id: user } }
+
+      it { is_expected.to render_template :lock }
+      it { is_expected.to render_with_layout 'admin_lte_2' }
+
+    end
+
+    describe 'on modal' do
+
+      subject { get :lock, params: { id: user }, xhr: true }
+
+      it { is_expected.to render_template :lock }
+      it { is_expected.not_to render_with_layout }
+
+    end
+
+  end
+
+  describe 'PATCH lock' do
+
+    subject { patch :lock, params: { id: user.id } }
+
+    let(:user) { create(:user, :unlocked) }
+
+    it { expect { subject }.to change { user.reload.access_locked? }.from(false).to(true) }
+    it { is_expected.to redirect_to admin_users_path }
+
+  end
+
+  describe 'GET unlock' do
+
+    let(:user) { create(:user) }
+
+    describe 'on new tab' do
+
+      subject { get :unlock, params: { id: user } }
+
+      it { is_expected.to render_template :unlock }
+      it { is_expected.to render_with_layout 'admin_lte_2' }
+
+    end
+
+    describe 'on modal' do
+
+      subject { get :unlock, params: { id: user }, xhr: true }
+
+      it { is_expected.to render_template :unlock }
+      it { is_expected.not_to render_with_layout }
+
+    end
+
+  end
+
+  describe 'PATCH unlock' do
+
+    subject { patch :unlock, params: { id: user.id } }
+
+    let(:user) { create(:user, :locked) }
+
+    it { expect { subject }.to change { user.reload.access_locked? }.from(true).to(false) }
+    it { is_expected.to redirect_to admin_users_path }
+
+  end
+
   # describe 'GET role' do
   #
   #   let(:user) { create(:user) }

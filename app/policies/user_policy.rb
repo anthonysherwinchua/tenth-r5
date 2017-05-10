@@ -12,11 +12,11 @@ class UserPolicy < ApplicationPolicy
     create?
   end
 
-  def activate?
+  def lock?
     update?
   end
 
-  def deactivate?
+  def unlock?
     update?
   end
 

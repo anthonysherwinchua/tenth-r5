@@ -1,0 +1,13 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Unlock User?
+
+  .modal-body.box-body
+    p Are you sure you want to unlock #{@user.email}?
+
+  .modal-footer.box-footer
+    = link_to 'Unlock User', unlock_admin_user_path(@user), method: :patch, class: 'btn btn-primary pull-right btn-block'

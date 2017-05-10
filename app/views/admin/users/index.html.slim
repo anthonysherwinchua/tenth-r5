@@ -19,22 +19,33 @@
         table.table.table-hover.table-striped
           thead
             tr
+              th
               th Role
               th Email
               /th Username
               th First Name
               th Middle Name
               th Last Name
-              /th Active?
               th
           tbody
             - @users.each do |user|
               tr
-                td = user.role.titleize
+                td
+                  p
+                    - if user.access_locked?
+                      span.label.label-warning = 'locked'
+                td
+                  p
+                    span.label.label-primary = user.role.titleize
                 td = user.email
                 /td = user.username
                 td = user.first_name
                 td = user.middle_name
                 td = user.last_name
-                /td = user.active? ? 'Yes' : 'No'
-                td = link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }
+                td
+                  = link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }
+                  - if user.access_locked?
+                    = link_to 'Unlock', unlock_admin_user_path(user), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }
+                  - else
+                    = link_to 'Lock', lock_admin_user_path(user), class: 'btn btn-default', data: { toggle: 'modal', target: '.modal' }
+

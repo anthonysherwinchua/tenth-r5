@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
   before_action :prepare_new_user, only: [:new, :create]
-  before_action :prepare_user, only: [:edit, :update]
+  before_action :prepare_user, only: [:edit, :update, :lock, :unlock]
 
   def index
     authorize User
@@ -30,6 +30,20 @@ class Admin::UsersController < Admin::BaseController
     else
       render :edit
     end
+  end
+
+  def lock
+    render action: :lock, layout: false and return if request.xhr? == 0
+    render action: :lock and return if request.get?
+    @user.lock_access! send_instructions: false
+    redirect_to admin_users_path, notice: 'Successfully locked record.'
+  end
+
+  def unlock
+    render action: :unlock, layout: false and return if request.xhr? == 0
+    render action: :unlock and return if request.get?
+    @user.unlock_access!
+    redirect_to admin_users_path, notice: 'Successfully unlocked record.'
   end
 
   private

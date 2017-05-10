@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  devise :database_authenticatable, :recoverable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :trackable, :validatable, :lockable
 
   validates :password, presence: true, confirmation: { message: 'Please enter the same password.' }, if: :password_required?
   validates :role, presence: true

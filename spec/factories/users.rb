@@ -33,6 +33,16 @@ FactoryGirl.define do
       password_confirmation 'password456'
     end
 
+    trait :locked do
+      locked_at Time.now.utc
+    end
+
+    trait :unlocked do
+      locked_at nil
+      failed_attempts 0
+      unlock_token nil
+    end
+
   end
 
 end
