@@ -5,7 +5,7 @@ class Admin::Lookups::CountriesController < Admin::BaseController
 
   def index
     authorize Country
-    @countries = Country.all
+    @countries = Country.order(name: :asc)
   end
 
   def new

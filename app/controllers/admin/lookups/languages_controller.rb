@@ -5,7 +5,7 @@ class Admin::Lookups::LanguagesController < Admin::BaseController
 
   def index
     authorize Language
-    @languages = Language.all
+    @languages = Language.order(name: :asc)
   end
 
   def new

@@ -5,7 +5,7 @@ class Admin::Lookups::SkillsController < Admin::BaseController
 
   def index
     authorize Skill
-    @skills = Skill.all
+    @skills = Skill.order(name: :asc)
   end
 
   def new
