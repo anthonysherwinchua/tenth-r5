@@ -1,0 +1,3 @@
+class AcademicLevelPolicy < LookupBasePolicy
+
+end

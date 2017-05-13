@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     namespace :lookups do
 
+      resources :academic_degrees, only: [:index, :new, :create, :edit, :update]
+      resources :academic_levels, only: [:index, :new, :create, :edit, :update]
       resources :blood_types, only: [:index, :new, :create, :edit, :update]
       resources :citizenships, only: [:index, :new, :create, :edit, :update]
       resources :civil_statuses, only: [:index, :new, :create, :edit, :update]

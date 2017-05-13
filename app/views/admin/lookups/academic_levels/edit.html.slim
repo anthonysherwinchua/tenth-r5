@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | Editing Academic Level: #{@academic_level.name}
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Academic Levels', admin_lookups_academic_levels_path
+  li = link_to "Editing: #{@academic_level.name}", edit_admin_lookups_academic_level_path(@academic_level)
+
+= simple_form_for @academic_level, url: admin_lookups_academic_level_path(@academic_level), method: :patch do |f|
+  = render 'form', f: f

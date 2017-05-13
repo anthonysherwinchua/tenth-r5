@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20170510122055) do
   enable_extension "plpgsql"
 
   create_table "academic_degrees", force: :cascade do |t|
-    t.string  "degree",  default: ""
+    t.string  "name",    default: ""
     t.boolean "enabled", default: false
-    t.index ["degree"], name: "index_academic_degrees_on_degree", using: :btree
+    t.index ["name"], name: "index_academic_degrees_on_name", using: :btree
   end
 
   create_table "academic_levels", force: :cascade do |t|
