@@ -26,7 +26,7 @@ RSpec.describe Admin::JobOpeningsController, type: :controller do
 
     describe 'on new tab' do
 
-      subject { get :new  }
+      subject { get :new }
 
       it { is_expected.to render_template :new }
       it { is_expected.to render_with_layout 'admin_lte_2' }

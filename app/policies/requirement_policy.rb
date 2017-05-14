@@ -1,0 +1,3 @@
+class RequirementPolicy < JobOpeningPolicy
+
+end
