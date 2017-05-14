@@ -6,10 +6,11 @@ class Admin::JobOpeningsController < Admin::BaseController
 
   def index
     authorize JobOpening
-    @job_openings = JobOpening.order(country_id: :asc)
+    @job_openings = JobOpening.includes(:country, :occupation).order(country_id: :asc)
   end
 
   def show
+    @requirements = @job_opening.requirements.includes(:document).order('documents.name asc')
     render action: :show, layout: false if request.xhr? == 0
   end
 
@@ -44,7 +45,7 @@ class Admin::JobOpeningsController < Admin::BaseController
   end
 
   def prepare_job_opening
-    @job_opening = JobOpening.find(params[:id]).tap { |record| authorize record }
+    @job_opening = JobOpening.includes(:country, :occupation).find(params[:id]).tap { |record| authorize record }
   end
 
   def job_opening_params

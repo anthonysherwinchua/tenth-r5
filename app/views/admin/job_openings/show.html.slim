@@ -36,7 +36,7 @@
             th Status
             th Document
           tbody
-            - @job_opening.requirements.each do |requirement|
+            - @requirements.each do |requirement|
               tr
                 td
                   = link_to edit_admin_job_opening_requirement_path(@job_opening, requirement), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
