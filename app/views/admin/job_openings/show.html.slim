@@ -2,6 +2,7 @@
   | Job Opening: #{@job_opening.occupation.name} at #{@job_opening.country.name}
 
 - content_for :breadcrumbs do
+  li = link_to 'Job Openings', admin_job_openings_path
   li = link_to "#{@job_opening.occupation.name} at #{@job_opening.country.name}", admin_job_opening_path(@job_opening)
 
 .row
