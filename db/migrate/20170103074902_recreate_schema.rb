@@ -1,11 +1,11 @@
 class RecreateSchema < ActiveRecord::Migration
   def up
     create_table "academic_degrees", :force => true do |t|
-      t.string  "degree",  :default => ""
+      t.string  "name",  :default => ""
       t.boolean "enabled", :default => false
     end
 
-    add_index "academic_degrees", ["degree"], :name => "index_academic_degrees_on_degree"
+    add_index "academic_degrees", ["name"], :name => "index_academic_degrees_on_name"
 
     create_table "academic_levels", :force => true do |t|
       t.string "name"

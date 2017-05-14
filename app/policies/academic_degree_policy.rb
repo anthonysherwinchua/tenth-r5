@@ -1,0 +1,3 @@
+class AcademicDegreePolicy < LookupBasePolicy
+
+end

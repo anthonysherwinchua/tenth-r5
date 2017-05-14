@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Academic Degrees
+
+- content_for :breadcrumbs do
+  li = link_to 'Lookups', admin_lookups_path
+  li = link_to 'Academic Degrees', admin_lookups_academic_degrees_path
+  li = link_to 'New', new_admin_lookups_academic_degree_path
+
+= simple_form_for @academic_degree, url: admin_lookups_academic_degrees_path do |f|
+  = render 'form', f: f

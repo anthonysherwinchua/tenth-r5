@@ -26,6 +26,9 @@ App.init = ->
 
   $(document).ready ->
     $(".alert").delay(5000).slideUp()
+    $('input').iCheck
+      checkboxClass: 'icheckbox_minimal-blue'
+      radioClass: 'iradio_minimal-blue'
     return
 
   $('.modal').on 'loaded.bs.modal', (e)->

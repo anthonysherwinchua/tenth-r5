@@ -1,5 +1,7 @@
 files = [
   'users',
+  'academic_degrees',
+  'academic_levels',
   'blood_types',
   'citizenships',
   'civil_statuses',
