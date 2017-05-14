@@ -1,0 +1,9 @@
+- content_for :page_header do
+  | New Job Openings
+
+- content_for :breadcrumbs do
+  li = link_to 'Job Openings', admin_job_openings_path
+  li = link_to 'New', new_admin_job_opening_path
+
+= simple_form_for @form.job_opening, url: admin_job_openings_path do |f|
+  = render 'form', f: f

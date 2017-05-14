@@ -1,0 +1,3 @@
+class JobOpeningPolicy < LookupBasePolicy
+
+end
