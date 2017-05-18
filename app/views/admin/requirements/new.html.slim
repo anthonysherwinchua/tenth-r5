@@ -1,0 +1,10 @@
+- content_for :page_header do
+  | New Requirements
+
+- content_for :breadcrumbs do
+  li = link_to 'Job Openings', admin_job_openings_path
+  li = link_to "#{@job_opening.occupation.name} at #{@job_opening.country.name}", admin_job_opening_path(@job_opening)
+  li = link_to 'New Requirements', new_admin_job_opening_requirement_path
+
+= simple_form_for [@job_opening, @requirement], url: admin_job_opening_requirements_path(@job_opening) do |f|
+  = render 'form', f: f

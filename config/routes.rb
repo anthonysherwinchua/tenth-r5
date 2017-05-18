@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
     root to: 'dashboard#show'
 
+    resources :job_openings, only: [:index, :show, :new, :create, :edit, :update] do
+      resources :requirements, only: [:new, :create, :edit, :update]
+    end
+
     resource :lookups, only: [:show]
 
     namespace :lookups do
