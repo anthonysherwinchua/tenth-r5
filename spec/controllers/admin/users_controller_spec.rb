@@ -179,52 +179,56 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   end
 
-  # describe 'GET role' do
-  #
-  #   let(:user) { create(:user) }
-  #
-  #   describe 'on new tab' do
-  #
-  #     subject { get :role, params: { id: user } }
-  #
-  #     it { is_expected.to render_template :role }
-  #     it { is_expected.to render_with_layout 'admin_lte_2' }
-  #
-  #   end
-  #
-  #   describe 'on modal' do
-  #
-  #     subject { get :role, params: { id: user }, xhr: true }
-  #
-  #     it { is_expected.to render_template :role }
-  #     it { is_expected.not_to render_with_layout }
-  #
-  #   end
-  #
-  # end
-  #
-  # describe 'PATCH role' do
-  #
-  #   subject { patch :role, id: user.id, params: { role: :admin } }
-  #
-  #   context 'when valid' do
-  #
-  #     let(:user) { create(:user, :manager) }
-  #
-  #     it { expect { subject }.to change { user.reload.admin? }.from(false).to(true) }
-  #     it { is_expected.to redirect_to admin_users_path }
-  #
-  #   end
-  #
-  #   context 'when invalid' do
-  #
-  #     let(:user) { create(:user, :admin) }
-  #
-  #     it { expect { subject }.not_to change { user.reload.admin? } }
-  #     it { is_expected.to render_template :role }
-  #
-  #   end
-  #
-  # end
+
+  describe 'GET role' do
+
+    let(:user) { create(:user) }
+
+    describe 'on new tab' do
+
+      subject { get :role, params: { id: user } }
+
+      it { is_expected.to render_template :role }
+      it { is_expected.to render_with_layout 'admin_lte_2' }
+
+    end
+
+    describe 'on modal' do
+
+      subject { get :role, params: { id: user }, xhr: true }
+
+      it { is_expected.to render_template :role }
+      it { is_expected.not_to render_with_layout }
+
+    end
+
+  end
+
+  describe 'PATCH role' do
+
+    let(:old_role) { User.roles.keys.first }
+    let(:user) { create(:user, role: old_role) }
+
+    subject { patch :role, params: { id: user, user: { role: new_role } } }
+
+    context 'when valid' do
+
+      let(:new_role) { User.roles.keys.second }
+
+      it { expect { subject }.to change { user.reload.role }.from(old_role).to(new_role) }
+      it { is_expected.to redirect_to admin_users_path }
+
+    end
+
+    context 'when invalid' do
+
+      let(:new_role) { 'hello' }
+
+      it { expect { subject }.not_to change { user.reload.role } }
+      it { is_expected.to render_template :role }
+
+    end
+
+  end
 
 end

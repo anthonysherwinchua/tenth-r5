@@ -1,7 +1,8 @@
 class Admin::UsersController < Admin::BaseController
 
   before_action :prepare_new_user, only: [:new, :create]
-  before_action :prepare_user, only: [:edit, :update, :lock, :unlock]
+  before_action :prepare_user, only: [:edit, :update, :lock, :unlock, :role]
+  before_action :prepare_form, only: [:role]
 
   def index
     authorize User
@@ -46,6 +47,16 @@ class Admin::UsersController < Admin::BaseController
     redirect_to admin_users_path, notice: 'Successfully unlocked record.'
   end
 
+  def role
+    render action: :role, layout: false and return if request.xhr? == 0
+    render action: :role and return if request.get?
+    if @form.save(user_role_params[:role])
+      redirect_to admin_users_path, notice: 'Successfully updated record.'
+    else
+      render :role
+    end
+  end
+
   private
 
   def prepare_new_user
@@ -56,8 +67,16 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id]).tap { |record| authorize record }
   end
 
+  def prepare_form
+    @form = UpdateUserRoleForm.new(@user)
+  end
+
   def user_params
     params.require(:user).permit(:email, :first_name, :middle_name, :last_name, :password, :password_confirmation)
+  end
+
+  def user_role_params
+    params.require(:user).permit(:role)
   end
 
 end
