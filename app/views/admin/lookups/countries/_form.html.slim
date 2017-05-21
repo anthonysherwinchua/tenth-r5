@@ -19,7 +19,7 @@
       .col-xs-4
         = f.input :numcode, label: 'Code'
       .col-xs-12
-        = f.input :enabled, label: 'Enabled?'
+        = f.input :enabled, label: 'Enabled?', disabled: !policy(f.object).disable?
 
   .modal-footer.box-footer
     = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'
