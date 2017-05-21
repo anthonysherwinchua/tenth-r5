@@ -67,7 +67,7 @@ RSpec.describe Admin::RequirementsController, type: :controller do
 
     describe 'on modal' do
 
-      subject { get :edit, params: { job_opening_id: job_opening, id: requirement}, xhr: true }
+      subject { get :edit, params: { job_opening_id: job_opening, id: requirement }, xhr: true }
 
       it { is_expected.to render_template :edit }
       it { is_expected.not_to render_with_layout }
