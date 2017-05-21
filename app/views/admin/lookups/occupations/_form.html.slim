@@ -11,7 +11,7 @@
       .col-xs-12
         = f.input :name, label: 'Occupation'
         = f.input :shorthand, label: 'Shorthand'
-        = f.input :enabled, label: 'Enabled?'
+        = f.input :enabled, label: 'Enabled?', disabled: !policy(f.object).disable?
 
   .modal-footer.box-footer
     = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'
