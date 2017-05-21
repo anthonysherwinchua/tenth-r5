@@ -7,8 +7,8 @@
 #= require bootstrap-datetimepicker
 #= require cocoon
 #= require adminlte/app.js
-#= require adminlte/icheck.min.js
 #= require adminlte/jquery.slimscroll.min.js
+#= require 'icheck'
 
 window.App ||= {}
 App.Views ||= {}
