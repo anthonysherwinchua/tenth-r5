@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::OccupationsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:occupation) { create(:occupation) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: occupation, occupation: attributes_for(:occupation) } }
+
+      it { is_expected.to redirect_to admin_lookups_occupations_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: occupation, occupation: attributes_for(:occupation, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

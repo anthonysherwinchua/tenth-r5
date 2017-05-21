@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::CountriesController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:country) { create(:country) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: country, country: attributes_for(:country) } }
+
+      it { is_expected.to redirect_to admin_lookups_countries_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: country, country: attributes_for(:country, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

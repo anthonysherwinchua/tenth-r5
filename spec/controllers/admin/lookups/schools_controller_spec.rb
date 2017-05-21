@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::SchoolsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:school) { create(:school) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: school, school: attributes_for(:school) } }
+
+      it { is_expected.to redirect_to admin_lookups_schools_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: school, school: attributes_for(:school, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

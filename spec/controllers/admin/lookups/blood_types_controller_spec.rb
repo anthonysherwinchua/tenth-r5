@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::BloodTypesController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:blood_type) { create(:blood_type) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: blood_type, blood_type: attributes_for(:blood_type) } }
+
+      it { is_expected.to redirect_to admin_lookups_blood_types_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: blood_type, blood_type: attributes_for(:blood_type, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

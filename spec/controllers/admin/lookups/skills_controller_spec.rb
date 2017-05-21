@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::SkillsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:skill) { create(:skill) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: skill, skill: attributes_for(:skill) } }
+
+      it { is_expected.to redirect_to admin_lookups_skills_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: skill, skill: attributes_for(:skill, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::ReligionsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:religion) { create(:religion) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: religion, religion: attributes_for(:religion) } }
+
+      it { is_expected.to redirect_to admin_lookups_religions_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: religion, religion: attributes_for(:religion, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

@@ -28,7 +28,7 @@ class Admin::Lookups::RelationshipsController < Admin::BaseController
     if @relationship.update_attributes(relationship_params)
       redirect_to admin_lookups_relationships_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

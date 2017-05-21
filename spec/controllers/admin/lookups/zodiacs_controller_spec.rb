@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::ZodiacsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:zodiac) { create(:zodiac) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: zodiac, zodiac: attributes_for(:zodiac) } }
+
+      it { is_expected.to redirect_to admin_lookups_zodiacs_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: zodiac, zodiac: attributes_for(:zodiac, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

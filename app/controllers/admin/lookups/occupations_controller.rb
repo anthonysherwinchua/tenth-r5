@@ -28,7 +28,7 @@ class Admin::Lookups::OccupationsController < Admin::BaseController
     if @occupation.update_attributes(occupation_params)
       redirect_to admin_lookups_occupations_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

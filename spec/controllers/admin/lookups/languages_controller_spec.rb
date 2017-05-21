@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::LanguagesController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:language) { create(:language) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: language, language: attributes_for(:language) } }
+
+      it { is_expected.to redirect_to admin_lookups_languages_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: language, language: attributes_for(:language, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::ContactTypesController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:contact_type) { create(:contact_type) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: contact_type, contact_type: attributes_for(:contact_type) } }
+
+      it { is_expected.to redirect_to admin_lookups_contact_types_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: contact_type, contact_type: attributes_for(:contact_type, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

@@ -28,7 +28,7 @@ class Admin::Lookups::ContactTypesController < Admin::BaseController
     if @contact_type.update_attributes(contact_type_params)
       redirect_to admin_lookups_contact_types_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

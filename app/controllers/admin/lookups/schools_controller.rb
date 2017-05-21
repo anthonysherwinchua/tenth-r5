@@ -28,7 +28,7 @@ class Admin::Lookups::SchoolsController < Admin::BaseController
     if @school.update_attributes(school_params)
       redirect_to admin_lookups_schools_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

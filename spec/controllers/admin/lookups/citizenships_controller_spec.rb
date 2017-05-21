@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::CitizenshipsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:citizenship) { create(:citizenship) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: citizenship, citizenship: attributes_for(:citizenship) } }
+
+      it { is_expected.to redirect_to admin_lookups_citizenships_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: citizenship, citizenship: attributes_for(:citizenship, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

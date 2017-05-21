@@ -28,7 +28,7 @@ class Admin::Lookups::SkillsController < Admin::BaseController
     if @skill.update_attributes(skill_params)
       redirect_to admin_lookups_skills_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

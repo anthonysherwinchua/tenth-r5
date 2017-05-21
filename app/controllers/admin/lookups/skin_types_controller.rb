@@ -28,7 +28,7 @@ class Admin::Lookups::SkinTypesController < Admin::BaseController
     if @skin_type.update_attributes(skin_type_params)
       redirect_to admin_lookups_skin_types_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

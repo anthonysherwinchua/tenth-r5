@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::SkinTypesController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:skin_type) { create(:skin_type) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: skin_type, skin_type: attributes_for(:skin_type) } }
+
+      it { is_expected.to redirect_to admin_lookups_skin_types_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: skin_type, skin_type: attributes_for(:skin_type, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

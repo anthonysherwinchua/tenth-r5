@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::AcademicLevelsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:academic_level) { create(:academic_level) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: academic_level, academic_level: attributes_for(:academic_level) } }
+
+      it { is_expected.to redirect_to admin_lookups_academic_levels_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: academic_level, academic_level: attributes_for(:academic_level, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end

@@ -80,4 +80,26 @@ RSpec.describe Admin::Lookups::RelationshipsController, type: :controller do
 
   end
 
+  describe 'PUT update' do
+
+    let(:relationship) { create(:relationship) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: relationship, relationship: attributes_for(:relationship) } }
+
+      it { is_expected.to redirect_to admin_lookups_relationships_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: relationship, relationship: attributes_for(:relationship, :invalid) } }
+
+      it { is_expected.to render_template :edit }
+
+    end
+
+  end
+
 end
