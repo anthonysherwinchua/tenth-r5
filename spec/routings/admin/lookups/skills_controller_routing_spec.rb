@@ -5,7 +5,6 @@ RSpec.describe Admin::Lookups::SkillsController, type: :routing do
   it { expect(get: '/admin/lookups/skills').to route_to('admin/lookups/skills#index') }
 
   it { expect(get: '/admin/lookups/skills/new').to route_to('admin/lookups/skills#new') }
-  it { expect(get: '/admin/lookups/skills/new').to route_to('admin/lookups/skills#new') }
   it { expect(post: '/admin/lookups/skills').to route_to('admin/lookups/skills#create') }
 
   it { expect(get: '/admin/lookups/skills/1/edit').to route_to('admin/lookups/skills#edit', id: '1') }
