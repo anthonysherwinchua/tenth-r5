@@ -1,0 +1,43 @@
+- content_for :page_header do
+  | Applicants
+
+- content_for :breadcrumbs do
+  li = link_to 'Applicants', admin_applicants_path
+
+.row
+  .col-xs-12
+
+    .box
+      .box-header
+        .box-title
+
+        .box-tools
+          .no-margin.pull-right
+            = link_to 'Add new', new_admin_applicant_path, class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
+
+      .box-body.no-padding
+
+        table.table.table-hover.table-striped
+          thead
+            tr
+              th
+              th Name
+              th Gender
+              th Age
+              th Civil Status
+          tbody
+            - @applicants.each do |applicant|
+              - decorate(applicant) do |applicant|
+                tr
+                  td
+                    = link_to edit_admin_applicant_path(applicant), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                      = fa_icon 'edit'
+                      | Edit
+
+                    = link_to admin_applicant_path(applicant), class: 'btn btn-flat btn-default' do
+                      = fa_icon 'eye'
+                      | Details
+                  td = applicant.name
+                  td = applicant.gender
+                  td = applicant.age
+                  td = applicant.civil_status&.name

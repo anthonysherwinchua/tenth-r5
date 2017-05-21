@@ -164,9 +164,9 @@ class RecreateSchema < ActiveRecord::Migration
       t.string  "suffix_name",     :default => ""
       t.date    "birthday"
       t.string  "birthplace",      :default => ""
-      t.boolean "gender",          :default => true
-      t.string  "height"
-      t.string  "weight"
+      t.integer "gender",          :default => 1
+      t.integer  "height"
+      t.integer "weight"
       t.string  "video_url",       :default => ""
     end
 

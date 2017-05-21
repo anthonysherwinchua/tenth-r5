@@ -1,0 +1,40 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Applicant Details
+
+  .modal-body.box-body
+    .row
+      .col-xs-4
+        = f.input :first_name
+      .col-xs-2
+        = f.input :middle_name
+      .col-xs-4
+        = f.input :last_name
+      .col-xs-2
+        = f.input :suffix_name
+    .row
+      .col-xs-3
+        = f.input :birthday, start_year: 60.years.ago.year, end_year: 18.years.ago.year
+      .col-xs-3
+        = f.input :birthplace
+      .col-xs-2
+        = f.input :gender, collection: @form.genders
+      .col-xs-2
+        = f.input :height
+      .col-xs-2
+        = f.input :weight
+
+    .row
+      .col-xs-4
+        = f.association :civil_status, label: 'CivilStatus', collection: @form.civil_statuses
+      .col-xs-4
+        = f.association :citizenship, label: 'Citizenship', collection: @form.citizenships
+      .col-xs-4
+        = f.association :religion, label: 'Religion', collection: @form.religions
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'

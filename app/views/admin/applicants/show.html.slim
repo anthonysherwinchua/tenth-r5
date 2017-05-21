@@ -1,0 +1,44 @@
+- decorate(@applicant) do |applicant|
+  - content_for :page_header do
+    | Applicant: #{applicant.name}
+
+  - content_for :breadcrumbs do
+    li = link_to 'Applicants', admin_applicants_path
+    li = link_to applicant.name, admin_applicant_path(applicant)
+
+  .row
+    .col-xs-3
+      .box.box-primary
+        .box-header
+          .box-title Details
+
+        .box-body.box-profile
+          ul.list-group.list-group-unbordered
+            li.list-group-item
+              b First Name
+              .pull-right = applicant.first_name
+            li.list-group-item
+              b Middle Name
+              .pull-right = applicant.middle_name
+            li.list-group-item
+              b Last Name
+              .pull-right = applicant.last_name
+            li.list-group-item
+              b Suffix Name
+              .pull-right = applicant.suffix_name
+            li.list-group-item
+              b Birthday (age)
+              .pull-right
+                = applicant.birthday
+                = " (#{applicant.age})"
+            li.list-group-item
+              b Gender
+              .pull-right = applicant.gender
+            li.list-group-item
+              b Height
+              .pull-right = applicant.height
+            li.list-group-item
+              b Weight
+              .pull-right = applicant.weight
+
+    .col-xs-9

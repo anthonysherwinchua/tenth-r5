@@ -1,0 +1,9 @@
+- content_for :page_header do
+  | New Applicants
+
+- content_for :breadcrumbs do
+  li = link_to 'Applicants', admin_applicants_path
+  li = link_to 'New', new_admin_applicant_path
+
+= simple_form_for @form.applicant, url: admin_applicants_path do |f|
+  = render 'form', f: f

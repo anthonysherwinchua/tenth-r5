@@ -179,7 +179,6 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   end
 
-
   describe 'GET role' do
 
     let(:user) { create(:user) }

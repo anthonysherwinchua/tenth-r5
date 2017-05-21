@@ -9,9 +9,11 @@
 #= require adminlte/app.js
 #= require adminlte/jquery.slimscroll.min.js
 #= require 'icheck'
+#= require_tree ./controllers/admin/applicants
 
 window.App ||= {}
 App.Views ||= {}
+App.Views.Admin_Applicants ||= {}
 
 App.init = ->
   appData = $('body').data()

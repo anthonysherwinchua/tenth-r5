@@ -10,7 +10,7 @@
     .row
       .col-xs-12
         = f.input :name, label: 'CivilStatus'
-        = f.input :enabled, label: 'Enabled?'
+        = f.input :enabled, label: 'Enabled?', disabled: !policy(f.object).disable?
 
   .modal-footer.box-footer
     = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'
