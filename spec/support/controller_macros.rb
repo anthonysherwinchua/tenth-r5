@@ -36,5 +36,4 @@ module ControllerMacros
     end
   end
 
-
 end

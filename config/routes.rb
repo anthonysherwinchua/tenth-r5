@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :new, :create, :edit, :update] do
       match :lock, via: [:get, :patch], on: :member
       match :unlock, via: [:get, :patch], on: :member
-      # match :role, via: [:get, :patch], on: :member
+      match :role, via: [:get, :patch], on: :member
     end
 
   end
