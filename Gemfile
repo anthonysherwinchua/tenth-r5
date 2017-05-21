@@ -42,6 +42,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 
+gem 'validates_timeliness', '~> 4.0'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
