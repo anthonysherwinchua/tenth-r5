@@ -5,7 +5,6 @@ RSpec.describe Admin::Lookups::CountriesController, type: :routing do
   it { expect(get: '/admin/lookups/countries').to route_to('admin/lookups/countries#index') }
 
   it { expect(get: '/admin/lookups/countries/new').to route_to('admin/lookups/countries#new') }
-  it { expect(get: '/admin/lookups/countries/new').to route_to('admin/lookups/countries#new') }
   it { expect(post: '/admin/lookups/countries').to route_to('admin/lookups/countries#create') }
 
   it { expect(get: '/admin/lookups/countries/1/edit').to route_to('admin/lookups/countries#edit', id: '1') }

@@ -28,7 +28,7 @@ class Admin::Lookups::LanguagesController < Admin::BaseController
     if @language.update_attributes(language_params)
       redirect_to admin_lookups_languages_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

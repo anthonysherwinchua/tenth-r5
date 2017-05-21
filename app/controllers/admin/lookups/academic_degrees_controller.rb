@@ -28,7 +28,7 @@ class Admin::Lookups::AcademicDegreesController < Admin::BaseController
     if @academic_degree.update_attributes(academic_degree_params)
       redirect_to admin_lookups_academic_degrees_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

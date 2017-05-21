@@ -28,7 +28,7 @@ class Admin::Lookups::CivilStatusesController < Admin::BaseController
     if @civil_status.update_attributes(civil_status_params)
       redirect_to admin_lookups_civil_statuses_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

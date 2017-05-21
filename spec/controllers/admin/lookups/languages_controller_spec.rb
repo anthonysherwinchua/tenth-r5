@@ -16,7 +16,7 @@ RSpec.describe Admin::Lookups::LanguagesController, type: :controller do
 
     describe 'on new tab' do
 
-      subject { get :new  }
+      subject { get :new }
 
       it { is_expected.to render_template :new }
       it { is_expected.to render_with_layout 'admin_lte_2' }
@@ -75,6 +75,28 @@ RSpec.describe Admin::Lookups::LanguagesController, type: :controller do
 
       it { is_expected.to render_template :edit }
       it { is_expected.not_to render_with_layout }
+
+    end
+
+  end
+
+  describe 'PUT update' do
+
+    let(:language) { create(:language) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: language, language: attributes_for(:language) } }
+
+      it { is_expected.to redirect_to admin_lookups_languages_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: language, language: attributes_for(:language, :invalid) } }
+
+      it { is_expected.to render_template :edit }
 
     end
 

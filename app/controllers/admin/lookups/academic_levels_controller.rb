@@ -28,7 +28,7 @@ class Admin::Lookups::AcademicLevelsController < Admin::BaseController
     if @academic_level.update_attributes(academic_level_params)
       redirect_to admin_lookups_academic_levels_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

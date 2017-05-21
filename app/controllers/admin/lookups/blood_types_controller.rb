@@ -28,7 +28,7 @@ class Admin::Lookups::BloodTypesController < Admin::BaseController
     if @blood_type.update_attributes(blood_type_params)
       redirect_to admin_lookups_blood_types_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

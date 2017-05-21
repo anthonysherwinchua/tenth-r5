@@ -28,7 +28,7 @@ class Admin::Lookups::CitizenshipsController < Admin::BaseController
     if @citizenship.update_attributes(citizenship_params)
       redirect_to admin_lookups_citizenships_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

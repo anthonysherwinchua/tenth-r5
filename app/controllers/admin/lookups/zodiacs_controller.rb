@@ -28,7 +28,7 @@ class Admin::Lookups::ZodiacsController < Admin::BaseController
     if @zodiac.update_attributes(zodiac_params)
       redirect_to admin_lookups_zodiacs_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

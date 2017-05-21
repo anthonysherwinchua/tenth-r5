@@ -28,7 +28,7 @@ class Admin::Lookups::ReligionsController < Admin::BaseController
     if @religion.update_attributes(religion_params)
       redirect_to admin_lookups_religions_path, notice: 'Successfully updated record.'
     else
-      render :new
+      render :edit
     end
   end
 

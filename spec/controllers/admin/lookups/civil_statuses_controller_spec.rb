@@ -16,7 +16,7 @@ RSpec.describe Admin::Lookups::CivilStatusesController, type: :controller do
 
     describe 'on new tab' do
 
-      subject { get :new  }
+      subject { get :new }
 
       it { is_expected.to render_template :new }
       it { is_expected.to render_with_layout 'admin_lte_2' }
@@ -75,6 +75,28 @@ RSpec.describe Admin::Lookups::CivilStatusesController, type: :controller do
 
       it { is_expected.to render_template :edit }
       it { is_expected.not_to render_with_layout }
+
+    end
+
+  end
+
+  describe 'PUT update' do
+
+    let(:civil_status) { create(:civil_status) }
+
+    context 'when valid' do
+
+      subject { put :update, params: { id: civil_status, civil_status: attributes_for(:civil_status) } }
+
+      it { is_expected.to redirect_to admin_lookups_civil_statuses_path }
+
+    end
+
+    context 'when invalid' do
+
+      subject { put :update, params: { id: civil_status, civil_status: attributes_for(:civil_status, :invalid) } }
+
+      it { is_expected.to render_template :edit }
 
     end
 

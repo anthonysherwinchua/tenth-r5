@@ -5,7 +5,6 @@ RSpec.describe Admin::Lookups::AcademicDegreesController, type: :routing do
   it { expect(get: '/admin/lookups/academic_degrees').to route_to('admin/lookups/academic_degrees#index') }
 
   it { expect(get: '/admin/lookups/academic_degrees/new').to route_to('admin/lookups/academic_degrees#new') }
-  it { expect(get: '/admin/lookups/academic_degrees/new').to route_to('admin/lookups/academic_degrees#new') }
   it { expect(post: '/admin/lookups/academic_degrees').to route_to('admin/lookups/academic_degrees#create') }
 
   it { expect(get: '/admin/lookups/academic_degrees/1/edit').to route_to('admin/lookups/academic_degrees#edit', id: '1') }
