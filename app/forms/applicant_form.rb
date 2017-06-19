@@ -19,7 +19,7 @@ class ApplicantForm < BaseForm
   end
 
   def genders
-    @genders ||= Applicant.genders.keys
+    @genders ||= Applicant.genders.keys.map{|key| [key.titleize, key] }
   end
 
   def save(params)
