@@ -42,3 +42,22 @@
               .pull-right = applicant.weight
 
     .col-xs-9
+      .nav-tabs-custom
+        ul.nav.nav-tabs
+          li
+            a data-toggle="tab" data-url="#{admin_applicant_applications_path(applicant)}" Applications
+          li
+            a data-toggle="tab" data-url="#{admin_applicant_family_details_path(applicant)}" Personal Background
+          li
+            a data-toggle="tab" data-url="#{admin_applicant_photos_path(applicant)}" Photos
+          li
+            a data-toggle="tab" data-url="#{admin_applicant_employments_path(applicant)}" Employment / Education Background
+          li.pull-right
+            /a.text-muted href="#"
+            /  i.fa.fa-gear
+
+        .tab-content
+          .tab-pane.active
+            | pane
+          .tab-loader
+            = image_tag 'loading.gif', class: 'img-responsive center-block'

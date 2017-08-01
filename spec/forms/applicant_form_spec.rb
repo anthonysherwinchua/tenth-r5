@@ -30,7 +30,7 @@ RSpec.describe ApplicantForm, type: :form do
 
   describe '#genders' do
 
-    it { expect(subject.genders).to contain_exactly(*Applicant.genders.keys) }
+    it { expect(subject.genders).to contain_exactly(*Applicant.genders.keys.map{|key| [key.titleize, key]}) }
 
   end
 

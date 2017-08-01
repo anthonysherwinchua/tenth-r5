@@ -10,6 +10,7 @@
 #= require adminlte/jquery.slimscroll.min.js
 #= require 'icheck'
 #= require_tree ./controllers/admin/applicants
+#= require_tree ./common
 
 window.App ||= {}
 App.Views ||= {}

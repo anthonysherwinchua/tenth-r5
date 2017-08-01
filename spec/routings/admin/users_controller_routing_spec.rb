@@ -5,7 +5,6 @@ RSpec.describe Admin::UsersController, type: :routing do
   it { expect(get: '/admin/users').to route_to('admin/users#index') }
 
   it { expect(get: '/admin/users/new').to route_to('admin/users#new') }
-  it { expect(get: '/admin/users/new').to route_to('admin/users#new') }
   it { expect(post: '/admin/users').to route_to('admin/users#create') }
 
   it { expect(get: '/admin/users/1/edit').to route_to('admin/users#edit', id: '1') }

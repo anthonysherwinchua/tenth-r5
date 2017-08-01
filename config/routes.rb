@@ -6,7 +6,26 @@ Rails.application.routes.draw do
 
     root to: 'dashboard#show'
 
-    resources :applicants, only: [:index, :show, :new, :create, :edit, :update]
+    resources :applicants, only: [:index, :show, :new, :create, :edit, :update] do
+      scope module: :applicant_details do
+        resources :applications, only: [:index, :new, :create, :edit, :update]
+        resources :family_details, only: [:index, :new, :create, :edit, :update]
+        resources :photos, only: [:index, :new, :create, :edit, :update]
+        resources :employments, only: [:index, :new, :create, :edit, :update]
+
+        # resources :contact_details, only: [:new, :create, :edit, :update]
+        #
+        # resources :requirements, only: [:new, :create, :edit, :update]
+        # resources :documents, only: [:new, :create, :edit, :update]
+        #
+        # resources :family_members, only: [:new, :create, :edit, :update]
+        # resources :languages, only: [:new, :create, :edit, :update]
+        #
+        # resources :educations, only: [:new, :create, :edit, :update]
+        # resources :meta_data, only: [:new, :create, :edit, :update]
+        # resources :skills, only: [:new, :create, :edit, :update]
+      end
+    end
 
     resources :job_openings, only: [:index, :show, :new, :create, :edit, :update] do
       resources :requirements, only: [:new, :create, :edit, :update]
