@@ -38,6 +38,15 @@ App.init = ->
     $('input').iCheck
       checkboxClass: 'icheckbox_minimal-blue'
       radioClass: 'iradio_minimal-blue'
+    $('.datepicker').each (index, element) ->
+      element = $(element)
+      element.datetimepicker
+        format: 'YYYY/MM/DD'
+        useCurrent: false
+        maxDate: element.data('date-max-date')
+        minDate: element.data('date-min-date')
+        viewMode: 'years'
+      return
     return
 
   $('.modal').on 'hidden.bs.modal', (e)->

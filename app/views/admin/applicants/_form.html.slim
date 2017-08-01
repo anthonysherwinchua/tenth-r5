@@ -18,15 +18,19 @@
         = f.input :suffix_name
     .row
       .col-xs-3
-        = f.input :birthday, start_year: 60.years.ago.year, end_year: 18.years.ago.year
+        = f.input :birthday, label: 'Birthday (YYYY/MM/DD)' do
+          div.input-group
+            div.input-group-addon
+              = fa_icon 'calendar'
+            = f.input_field :birthday, as: :string, class: 'form-control datepicker pull-right', data: { 'date-min-date': 60.years.ago.strftime('%D'), 'date-max-date': 18.years.ago.strftime('%D') }
       .col-xs-3
         = f.input :birthplace
       .col-xs-2
         = f.input :gender, collection: @form.genders, include_blank: false
       .col-xs-2
-        = f.input :height
+        = f.input :height, label: 'Height (in cm)'
       .col-xs-2
-        = f.input :weight
+        = f.input :weight, label: 'Weight (in kg)'
 
     .row
       .col-xs-4
