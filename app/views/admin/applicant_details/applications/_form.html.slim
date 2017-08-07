@@ -1,0 +1,33 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Application
+
+  .modal-body.box-body
+    .row
+      .col-xs-12
+        = f.association :job_opening, collection: JobOpening.active.map { |job_opening| [JobOpeningDecorator.new(job_opening).name, job_opening.id] }
+        = f.input :applicant_code
+
+      .col-xs-6
+        = f.input :date_applied, label: 'Date Applied (YYYY/MM/DD)' do
+          div.input-group
+            div.input-group-addon
+              = fa_icon 'calendar'
+            = f.input_field :date_applied, as: :string, class: 'form-control datepicker pull-right', data: { 'date-min-date': 1.years.ago.strftime('%D'), 'date-max-date': Date.today.strftime('%D') }
+
+      .col-xs-6
+        = f.input :availability, label: 'Availability (YYYY/MM/DD)' do
+          div.input-group
+            div.input-group-addon
+              = fa_icon 'calendar'
+            = f.input_field :availability, as: :string, class: 'form-control datepicker pull-right', data: { 'date-min-date': 1.years.ago.strftime('%D'), 'date-max-date': 6.months.from_now.strftime('%D') }
+
+      .col-xs-12
+        = f.input :available
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'

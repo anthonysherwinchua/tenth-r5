@@ -5,6 +5,8 @@ RSpec.describe Applicant, type: :model do
   it { is_expected.to belong_to(:religion).inverse_of(:applicants) }
   it { is_expected.to belong_to(:citizenship).inverse_of(:applicants) }
   it { is_expected.to belong_to(:civil_status).inverse_of(:applicants) }
+  it { is_expected.to have_many(:applications).inverse_of(:applicant) }
+  it { is_expected.to have_many(:applicant_requirements).inverse_of(:applicant) }
 
   it { is_expected.to validate_presence_of(:religion) }
   it { is_expected.to validate_presence_of(:citizenship) }

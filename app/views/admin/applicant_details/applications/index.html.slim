@@ -1,0 +1,51 @@
+- decorate(@applicant) do |applicant|
+  - content_for :page_header do
+    | Applicants
+
+  - content_for :breadcrumbs do
+    li = link_to 'Applicants', admin_applicants_path
+    li = link_to applicant.name, admin_applicants_path
+
+  .row
+    .col-xs-12
+
+      .box
+        .box-header
+          .box-title
+
+          .box-tools
+            .no-margin.pull-right
+              = link_to 'Add new', new_admin_applicant_application_path(applicant), class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
+
+        .box-body.no-padding
+
+          table.table.table-hover.table-striped
+            thead
+              tr
+                th
+                th
+                th Applicant Code
+                th Date Applied
+                th Availability
+                th Country
+                th Occupation
+            tbody
+              - @applications.each do |application|
+                tr
+                  td
+                    = link_to edit_admin_applicant_application_path(applicant, application), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                      = fa_icon 'edit'
+                      | Edit
+                    = link_to admin_applicant_application_path(applicant, application), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                      = fa_icon 'eye'
+                      | Details
+                  td
+                    - if application.available
+                      label.label.label-success Available
+                    - else
+                      label.label.label-default Unavailable
+                  td = application.applicant_code
+                  td = application.date_applied
+                  td = application.availability
+                  td = application.job_opening.country.name
+                  td = application.job_opening.occupation.name

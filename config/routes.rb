@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
     resources :applicants, only: [:index, :show, :new, :create, :edit, :update] do
       scope module: :applicant_details do
-        resources :applications, only: [:index, :new, :create, :edit, :update]
+        resources :applications, only: [:index, :show, :new, :create, :edit, :update]
         resources :family_details, only: [:index, :new, :create, :edit, :update]
         resources :photos, only: [:index, :new, :create, :edit, :update]
         resources :employments, only: [:index, :new, :create, :edit, :update]

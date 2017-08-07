@@ -1,0 +1,48 @@
+- decorate(@applicant) do |applicant|
+  - decorate(@presenter.job_opening) do |job_opening|
+    - content_for :page_header do
+      | Applicants
+
+    - content_for :breadcrumbs do
+      li = link_to 'Applicants', admin_applicants_path
+      li = link_to applicant.name, admin_applicants_path
+      li = link_to job_opening.name, admin_job_opening_path(job_opening)
+
+    .box.box-primary
+      .modal-header.box-header.with-border
+
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  ×
+
+        h4.modal-title.box-title = job_opening.name
+
+      .modal-body.box-body
+        .row
+          .col-xs-4
+            ul.list-group.list-group-unbordered
+              li.list-group-item
+                b Applicant Code
+                .pull-right = @presenter.application.applicant_code
+              li.list-group-item
+                b Date Applied
+                .pull-right = @presenter.application.date_applied
+              li.list-group-item
+                b Availability
+                .pull-right = @presenter.application.availability
+              li.list-group-item
+                b Available
+                .pull-right = @presenter.application.available.humanize
+          .col-xs-8
+            h5 Documents
+            table.table.table-striped
+              - @presenter.requirements.each do |requirement|
+                tr
+                  td
+                    b = requirement.document.name
+                  td
+                    label.label class="label-#{requirement.status_label_level}"
+                      = requirement.status
+                  td = requirement.status_label
+
+      .modal-footer.box-footer
+

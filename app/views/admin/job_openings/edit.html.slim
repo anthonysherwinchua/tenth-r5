@@ -3,7 +3,7 @@
     | Editing Job Opening: #{job_opening.occupation_was.name} at #{job_opening.country_was.name}
 
   - content_for :breadcrumbs do
-    li = link_to "Editing: #{job_opening.occupation_was.name} at #{job_opening.country_was.name}", edit_admin_job_opening_path(job_opening)
+    li = link_to "Editing: #{job_opening.name}", edit_admin_job_opening_path(job_opening)
 
 = simple_form_for @form.job_opening, url: admin_job_opening_path(@job_opening), method: :patch do |f|
   = render 'form', f: f

@@ -8,4 +8,8 @@ class JobOpeningDecorator < BaseDecorator
     @occupation_was ||= changes.include?(:occupation_id) ? Occupation.find(changes[:occupation_id].first) : occupation
   end
 
+  def name
+    "#{occupation_was.name} at #{country_was.name}"
+  end
+
 end
