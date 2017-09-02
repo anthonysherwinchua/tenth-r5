@@ -1,0 +1,11 @@
+- decorate(@applicant) do |applicant|
+  - content_for :page_header do
+    | Applications
+
+  - content_for :breadcrumbs do
+    li = link_to 'Applicants', admin_applicants_path
+    li = link_to applicant.name, admin_applicants_path
+    li = link_to 'New Applicant Document', new_admin_applicant_applicant_requirement_path(applicant)
+
+  = simple_form_for @applicant_requirement, url: admin_applicant_applicant_requirements_path(applicant) do |f|
+    = render 'form', f: f

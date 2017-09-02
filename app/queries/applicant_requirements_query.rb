@@ -22,7 +22,7 @@ class ApplicantRequirementsQuery
   end
 
   def job_opening_required_documents
-    @required_documents ||= job_opening.requirements.enabled.map(&:document)
+    @required_documents ||= job_opening.requirements.active.map(&:document)
   end
 
   def applicant_requirements

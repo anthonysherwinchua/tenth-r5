@@ -5,6 +5,7 @@ class Admin::ApplicantDetails::ApplicationsController < Admin::BaseController
 
   def index
     @applications = @applicant.applications
+    @applicant_requirements = @applicant.applicant_requirements
     render action: :index, layout: false if request.xhr? == 0
   end
 

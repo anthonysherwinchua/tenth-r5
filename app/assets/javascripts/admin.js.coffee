@@ -28,10 +28,11 @@ App.init = ->
       (new App.Views[viewsClass]["Common"]).render()
 
   $(document).ready ->
-    $(".alert").delay(5000).slideUp()
+    $('.alert').delay(5000).slideUp()
     $('input').iCheck
       checkboxClass: 'icheckbox_minimal-blue'
       radioClass: 'iradio_minimal-blue'
+    $('[data-toggle="popover"]').popover(placement: 'auto');
     return
 
   $('.modal').on 'loaded.bs.modal', (e)->
