@@ -18,7 +18,7 @@ class ApplicantRequirementDecorator < BaseDecorator
 
   def status
     return :expired if expire && Date.current >= expire
-    return :soon_to_expire if expire && Date.current >= (expire + 1.week)
+    return :soon_to_expire if expire && Date.current >= (expire - 1.week)
     return :current if arrive
     return :applied if apply.present?
     :missing
