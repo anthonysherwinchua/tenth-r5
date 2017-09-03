@@ -41,6 +41,10 @@
               b Weight
               .pull-right = applicant.weight
 
+          = link_to edit_admin_applicant_path(applicant), class: 'btn btn-flat btn-primary btn-block', data: { toggle: 'modal', target: '.modal' } do
+            = fa_icon 'edit'
+            | Edit
+
     .col-xs-9
       .nav-tabs-custom
         ul.nav.nav-tabs

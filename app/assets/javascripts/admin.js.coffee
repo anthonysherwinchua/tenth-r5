@@ -54,4 +54,7 @@ App.init = ->
     $(".alert").addClass("fade")
     $(this).removeData('bs.modal');
     return
+  $('.modal').on 'hide.bs.modal', (e)->
+    $('.modal-content').html('');
+    return
   return
