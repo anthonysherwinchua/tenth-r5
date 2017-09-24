@@ -1,0 +1,30 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Family Detail
+
+  .modal-body.box-body
+    .row
+      .col-xs-2
+        = f.input :sisters, label: 'No. of Sisters'
+
+      .col-xs-2
+        = f.input :brothers, label: 'No. of Brothers'
+
+      .col-xs-2
+        = f.input :no_in_fam, label: 'No. in Family'
+
+      .col-xs-2
+        = f.input :children, label: 'No. of Children'
+
+      .col-xs-2
+        = f.input :eldest, label: 'Eldest Child'
+
+      .col-xs-2
+        = f.input :youngest, label: 'Youngest Child'
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'

@@ -1,0 +1,11 @@
+- decorate(@applicant) do |applicant|
+  - content_for :page_header do
+    | Family Details
+
+  - content_for :breadcrumbs do
+    li = link_to 'Applicants', admin_applicants_path
+    li = link_to applicant.name, admin_applicants_path
+    li = link_to 'New Family Details', new_admin_applicant_family_detail_path(applicant)
+
+  = simple_form_for @family_detail, url: admin_applicant_family_details_path(applicant) do |f|
+    = render 'form', f: f

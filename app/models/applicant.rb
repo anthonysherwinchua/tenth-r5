@@ -7,6 +7,8 @@ class Applicant < ApplicationRecord
   has_many :applications, inverse_of: :applicant
   has_many :applicant_requirements, inverse_of: :applicant
 
+  has_one :family_detail, class_name: 'ApplicantFamilyDetail', inverse_of: :applicant
+
   validates :religion, :citizenship, :civil_status, presence: true
   validates :first_name, :last_name, :birthday, :height, :weight, presence: true
   validates :first_name, uniqueness: { scope: :last_name }
