@@ -42,42 +42,35 @@
                 = fa_icon 'edit'
                 | Edit
 
-      /.col-xs-9
-      /  .box
-      /    .box-header
-      /      .box-title Documents
-      /
-      /      .box-tools
-      /        .no-margin.pull-right
-      /          = link_to 'Add new', new_admin_applicant_applicant_requirement_path(applicant), class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
-      /
-      /    .box-body.no-padding
-      /
-      /      table.table.table-hover.table-striped
-      /        thead
-      /          tr
-      /            th
-      /            th
-      /            th Document
-      /            th Date Applied
-      /            th Date Received
-      /            th Expiration Date
-      /        tbody
-      /          - @applicant_requirements.each do |applicant_requirement|
-      /            - decorate(applicant_requirement) do |applicant_requirement|
-      /              tr
-      /                td
-      /                  = link_to edit_admin_applicant_applicant_requirement_path(applicant, applicant_requirement), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
-      /                    = fa_icon 'edit'
-      /                    | Edit
-      /                  - note = applicant_requirement.note.blank? ? 'N/A' : applicant_requirement.note
-      /                  = link_to '#', class: 'btn btn-flat btn-default', data: { toggle: 'popover', content: note } do
-      /                    = fa_icon 'eye'
-      /                    | Details
-      /                td
-      /                  labe.label class="label-#{applicant_requirement.status_label_level}"
-      /                    = applicant_requirement.status
-      /                td = applicant_requirement.document.name
-      /                td = applicant_requirement.apply
-      /                td = applicant_requirement.arrive
-      /                td = applicant_requirement.expire
+      .col-xs-9
+        .box
+          .box-header
+            .box-title Family Members
+
+            .box-tools
+              .no-margin.pull-right
+                = link_to 'Add new', new_admin_applicant_family_member_path(applicant), class: 'btn btn-flat btn-primary', data: { toggle: 'modal', target: '.modal' }
+
+          .box-body.no-padding
+
+            table.table.table-hover.table-striped
+              thead
+                tr
+                  th
+                  th Name
+                  th Relationship
+                  th Age
+                  th Occupation
+                  th Salary
+              tbody
+                - @family_members.each do |family_member|
+                  tr
+                    td
+                      = link_to edit_admin_applicant_family_member_path(applicant, family_member), class: 'btn btn-flat btn-default', data: { toggle: 'modal', target: '.modal' } do
+                        = fa_icon 'edit'
+                        | Edit
+                    td = family_member.name
+                    td = family_member.relationship.name
+                    td = family_member.age
+                    td = family_member.occupation
+                    td = family_member.salary

@@ -5,6 +5,7 @@ class Admin::ApplicantDetails::FamilyDetailsController < Admin::BaseController
 
   def index
     @family_detail = @applicant.family_detail || ApplicantFamilyDetail.new
+    @family_members = @applicant.family_members
     render action: :index, layout: false if request.xhr? == 0
   end
 
@@ -37,7 +38,7 @@ class Admin::ApplicantDetails::FamilyDetailsController < Admin::BaseController
   private
 
   def prepare_applicant
-    @applicant = Applicant.includes(:family_detail).find(params[:applicant_id]).tap { |record| authorize record }
+    @applicant = Applicant.includes(:family_detail, :family_members).find(params[:applicant_id]).tap { |record| authorize record }
   end
 
   def prepare_family_detail

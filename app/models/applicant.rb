@@ -6,6 +6,7 @@ class Applicant < ApplicationRecord
 
   has_many :applications, inverse_of: :applicant
   has_many :applicant_requirements, inverse_of: :applicant
+  has_many :family_members, class_name: 'ApplicantFamilyMember', inverse_of: :applicant
 
   has_one :family_detail, class_name: 'ApplicantFamilyDetail', inverse_of: :applicant
 

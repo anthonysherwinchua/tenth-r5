@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         # resources :requirements, only: [:new, :create, :edit, :update]
         # resources :documents, only: [:new, :create, :edit, :update]
         #
-        # resources :family_members, only: [:new, :create, :edit, :update]
+        resources :family_members, only: [:new, :create, :edit, :update]
         # resources :languages, only: [:new, :create, :edit, :update]
         #
         # resources :educations, only: [:new, :create, :edit, :update]

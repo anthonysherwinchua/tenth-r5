@@ -1,0 +1,23 @@
+.box.box-primary
+  .modal-header.box-header.with-border
+
+    button.close aria-label="Close" data-dismiss="modal" type="button"
+      span aria-hidden="true"  ×
+
+    h4.modal-title.box-title Family Detail
+
+  .modal-body.box-body
+    .row
+      .col-xs-5
+        = f.input :name
+      .col-xs-5
+        = f.association :relationship
+      .col-xs-2
+        = f.input :age
+      .col-xs-6
+        = f.input :occupation
+      .col-xs-6
+        = f.input :salary
+
+  .modal-footer.box-footer
+    = f.submit 'Save', class: 'btn btn-flat btn-primary btn-block'
